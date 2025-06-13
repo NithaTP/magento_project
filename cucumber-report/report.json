@@ -1,0 +1,213 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "user-account-creation-and-login-on-magento-demo-site;create-a-new-user-and-log-in-with-same-credentials",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Create a new user and log in with same credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 619741999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am on the Magento homepage",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2469204799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I navigate to the \"Create an Account\" page",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3354416199
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "FirstName",
+                      "LastName",
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Nitha",
+                      "Paul",
+                      "auto",
+                      "N1tha100"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I enter valid registration details:",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 159902599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I submit the registration form",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2752089400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I should see a welcome message containing \"Nitha\"",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 388059199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I log out",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2257201199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I navigate to the \"Sign In\" page",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 867267600
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Email",
+                      "Password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "auto",
+                      "N1tha100"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I login with:",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4025814299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "I should see \"Nitha\" in the dashboard",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 236658699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I should see a welcome message containing \"Nitha\"",
+            "match": {
+              "location": "step-definitions\\signupLoginSteps.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19858800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 507977200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@signup-login",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "user-account-creation-and-login-on-magento-demo-site",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "User Account Creation and Login on Magento Demo Site",
+    "tags": [],
+    "uri": "features\\signup_login.feature"
+  }
+]
