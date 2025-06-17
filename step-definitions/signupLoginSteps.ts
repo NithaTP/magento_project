@@ -43,10 +43,10 @@ When('I submit the registration form', async function () {
 });
 When('I log out', async function () {
   const menuButton = this.page.getByRole('button', { name: 'Change' });
-  await menuButton.waitFor({ state: 'visible', timeout: 10000 });
+  await menuButton.waitFor({ state: 'visible', timeout: 8000 });
   await menuButton.click();
   const signOutLink = this.page.getByRole('link', { name: 'Sign Out' }).first();
-  await signOutLink.waitFor({ state: 'visible', timeout: 10000 });
+  await signOutLink.waitFor({ state: 'visible', timeout: 8000 });
   await signOutLink.click();
   await this.page.waitForURL('**/customer/account/logoutSuccess/**', { timeout: 15000 });
 });
