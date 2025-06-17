@@ -50,31 +50,34 @@ When('I log out', async function () {
   await signOutLink.click();
   await this.page.waitForURL('**/customer/account/logoutSuccess/**', { timeout: 15000 });
 });
-
-
-
-When('I login with:', async function (dataTable) {
+When('I enter valid registration details:', async function (dataTable) {
   const data = dataTable.hashes()[0];
+  const uniqueEmail = data.Email === 'auto'
+    ? `user_${Date.now()}@mailinator.com`
+    : data.Email;
 
-  const email = data.Email === 'auto' ? this.savedEmail : data.Email;
-  const password = data.Password === 'auto' ? this.savedPassword : data.Password;
+  this.savedEmail = uniqueEmail;
+  this.savedPassword = data.Password;
 
-  if (!email || !password) throw new Error('Missing login credentials');
-
-  await loginPage.login(email, password);
+  await signupPage.signUp(data.FirstName, data.LastName, uniqueEmail, data.Password);
 });
 
 
-Then('I should see a welcome message containing {string}', async function (name: string) {
-  await this.page.waitForSelector('div.box-content p', { timeout: 10000 });
-  const welcomeText = await this.page.textContent('div.box-content p');
-  expect(welcomeText).toContain(name);
+When('I submit the registration form', async function () {
+  await signupPage.submitForm();
+});
+When('I log out', async function () {
+  const menuButton = this.page.getByRole('button', { name: 'Change' });
+  await menuButton.waitFor({ state: 'visible', timeout: 8000 });
+  await menuButton.click();
+  const signOutLink = this.page.getByRole('link', { name: 'Sign Out' }).first();
+  await signOutLink.waitFor({ state: 'visible', timeout: 8000 });
+  await signOutLink.click();
+  await this.page.waitForURL('**/customer/account/logoutSuccess/**', { timeout: 15000 });
 });
 
-Then('I should see {string} in the dashboard', async function (expectedText: string) {
-  await this.page.waitForSelector('div.box-content p', { timeout: 10000 });
-  const dashboardText = await this.page.textContent('div.box-content p');
-  expect(dashboardText).toContain(expectedText);
-  await this.page.screenshot({ path: 'screenshot/welcome.png', fullPage: true });
-});
+
+
+
+
 
